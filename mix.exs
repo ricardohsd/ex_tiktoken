@@ -1,12 +1,14 @@
 defmodule Tiktoken.MixProject do
   use Mix.Project
 
+  @version "0.1.1-dev"
   @url "https://github.com/ricardohsd/tiktoken-elixir"
 
   def project do
     [
       app: :tiktoken,
-      version: "0.1.0",
+      name: :ex_tiktoken,
+      version: @version,
       elixir: "~> 1.13",
       description: "Elixir bindings for Tiktoken tokenizer",
       source_url: @url,

@@ -1,13 +1,12 @@
-defmodule Tiktoken.MixProject do
+defmodule ExTiktoken.MixProject do
   use Mix.Project
 
   @version "0.1.1-dev"
-  @url "https://github.com/ricardohsd/tiktoken-elixir"
+  @url "https://github.com/ricardohsd/ex_tiktoken"
 
   def project do
     [
-      app: :tiktoken,
-      name: :ex_tiktoken,
+      app: :ex_tiktoken,
       version: @version,
       elixir: "~> 1.13",
       description: "Elixir bindings for Tiktoken tokenizer",
@@ -43,7 +42,7 @@ defmodule Tiktoken.MixProject do
     [
       files: ~w(lib priv .formatter.exs mix.exs README* LICENSE* native checksum-*.exs),
       licenses: ["MIT"],
-      links: %{"GitHub" => "https://github.com/ricardohsd/tiktoken-elixir"}
+      links: %{"GitHub" => "https://github.com/ricardohsd/ex_tiktoken"}
     ]
   end
 
@@ -51,7 +50,7 @@ defmodule Tiktoken.MixProject do
     [
       fmt: [
         "format",
-        "cmd cargo fmt --manifest-path native/tiktoken/Cargo.toml"
+        "cmd cargo fmt --manifest-path native/ex_tiktoken/Cargo.toml"
       ]
     ]
   end

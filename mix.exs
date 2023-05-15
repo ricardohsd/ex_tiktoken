@@ -1,7 +1,7 @@
 defmodule Tiktoken.MixProject do
   use Mix.Project
 
-  @url "https://github.com/connorjacobsen/tiktoken-elixir"
+  @url "https://github.com/ricardohsd/tiktoken-elixir"
 
   def project do
     [
@@ -41,7 +41,7 @@ defmodule Tiktoken.MixProject do
     [
       files: ~w(lib priv .formatter.exs mix.exs README* LICENSE* native checksum-*.exs),
       licenses: ["MIT"],
-      links: %{"GitHub" => "https://github.com/connorjacobsen/tiktoken-elixir"}
+      links: %{"GitHub" => "https://github.com/ricardohsd/tiktoken-elixir"}
     ]
   end
 

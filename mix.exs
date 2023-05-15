@@ -1,7 +1,7 @@
 defmodule ExTiktoken.MixProject do
   use Mix.Project
 
-  @version "0.1.1-dev"
+  @version "0.1.1"
   @url "https://github.com/ricardohsd/ex_tiktoken"
 
   def project do

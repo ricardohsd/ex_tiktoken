@@ -7,12 +7,12 @@ Built on [@zurawiki](https://github.com/zurawiki)'s [tiktoken-rs](https://github
 ## Installation
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `tiktoken` to your list of dependencies in `mix.exs`:
+by adding `ex_tiktoken` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
   [
-    {:tiktoken, "~> 0.1.0"}
+    {:ex_tiktoken, "~> 0.1.1"}
   ]
 end
 ```

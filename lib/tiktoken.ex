@@ -4,14 +4,15 @@ defmodule Tiktoken do
   """
 
   @model_to_encoding %{
-    "p50k_base" => Tiktoken.P50K,
-    "p50k_edit" => Tiktoken.P50KEdit,
-    "r50k_base" => Tiktoken.R50K,
-    "cl100k_base" => Tiktoken.CL100K
+    "P50kBase" => Tiktoken.P50K,
+    "P50kEdit" => Tiktoken.P50KEdit,
+    "R50kBase" => Tiktoken.R50K,
+    "Cl100kBase" => Tiktoken.CL100K,
+    "Gpt2" => Tiktoken.P50K,
   }
 
-  def encoding_for_model(model) do
-    encoding_name = Tiktoken.Native.encoding_for_model(model)
+  def get_tokenizer(model) do
+    encoding_name = Tiktoken.Native.get_tokenizer(model)
     @model_to_encoding[encoding_name]
   end
 end

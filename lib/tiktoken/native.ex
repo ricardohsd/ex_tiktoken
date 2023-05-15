@@ -3,7 +3,7 @@ defmodule Tiktoken.Native do
 
   use Rustler, otp_app: :tiktoken, crate: :tiktoken
 
-  def encoding_for_model(_model), do: err()
+  def get_tokenizer(_model), do: err()
 
   def p50k_encode_ordinary(_input), do: err()
   def p50k_encode(_input, _allowed_special), do: err()

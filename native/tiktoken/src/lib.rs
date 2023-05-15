@@ -1,9 +1,23 @@
 use std::collections::HashSet;
 use std::vec::Vec;
+use tiktoken_rs::tokenizer::Tokenizer;
+
+// This converts the available tokens to strings that Elixir can understand.
+// https://github.com/zurawiki/tiktoken-rs/blob/main/tiktoken-rs/src/tokenizer.rs#L22
+fn token_string(token: Tokenizer) -> &'static str {
+    match token {
+        Tokenizer::Cl100kBase => "Cl100kBase",
+        Tokenizer::P50kBase => "P50kBase",
+        Tokenizer::R50kBase => "R50kBase",
+        Tokenizer::P50kEdit => "P50kEdit",
+        Tokenizer::Gpt2 => "Gpt2",
+    }
+}
 
 #[rustler::nif]
-fn encoding_for_model(model: &str) -> Option<&str> {
-    tiktoken_rs::encoding_for_model(model)
+fn get_tokenizer(model: &str) -> Option<&str> {
+    let tokenizer: Tokenizer = tiktoken_rs::tokenizer::get_tokenizer(model).unwrap();
+    Some(token_string(tokenizer))
 }
 
 // p50k
@@ -177,7 +191,7 @@ fn cl100k_decode(ids: Vec<usize>) -> Result<String, String> {
 rustler::init!(
     "Elixir.Tiktoken.Native",
     [
-        encoding_for_model,
+        get_tokenizer,
         p50k_encode_ordinary,
         p50k_encode,
         p50k_encode_with_special_tokens,

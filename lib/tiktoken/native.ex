@@ -6,10 +6,20 @@ defmodule Tiktoken.Native do
   use RustlerPrecompiled,
     otp_app: :tiktoken,
     crate: :tiktoken,
-    base_url:
-      "https://github.com/ricardohsd/tiktoken-elixir/releases/download/v#{version}",
+    base_url: "https://github.com/ricardohsd/tiktoken-elixir/releases/download/v#{version}",
     force_build: System.get_env("RUSTLER_PRECOMPILATION_BUILD") in ["1", "true"],
-    version: version
+    version: version,
+    nif_versions: ["2.16", "2.15"],
+    targets: [
+      "arm-unknown-linux-gnueabihf",
+      "aarch64-unknown-linux-gnu",
+      "aarch64-apple-darwin",
+      "riscv64gc-unknown-linux-gnu",
+      "x86_64-apple-darwin",
+      "x86_64-unknown-linux-gnu",
+      "x86_64-pc-windows-gnu",
+      "x86_64-pc-windows-msvc"
+    ]
 
   def get_tokenizer(_model), do: err()
 
